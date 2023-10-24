@@ -11,6 +11,7 @@ navigator.getUserMedia({
     // * This function will be called if, if access to the user's media is successful
     function(myStream){
         stream = myStream;
+        // * element is set to display the local video feed.
         local_video.srcObject = stream;
         // ! For error
     }, function(error){

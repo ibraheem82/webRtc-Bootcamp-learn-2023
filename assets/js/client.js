@@ -11,7 +11,7 @@ connection.onmessage = function(msg){
 }
 
 // if there is error in connection or if the connection is not established.
-connection.onmessage = function(error){
+connection.onerror = function(error){
     var data = JSON.parse(msg.data)
     console.log(error)
 }

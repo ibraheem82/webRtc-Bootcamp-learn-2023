@@ -8,6 +8,12 @@ connection.onopen = function(){
 // after getting message from the signalling server
 connection.onmessage = function(msg){
     var data = JSON.parse(msg.data)
+    switch(data.type){
+        case "login":
+            // connected to the sendToOtherUser function.
+            loginProcess(data.success);
+        break;
+    }
 }
 
 // if there is error in connection or if the connection is not established.
@@ -23,6 +29,7 @@ var url_string = window.location.href;
 var url = new URL(url_string);
 var username = url.searchParams.get('username');
 // if the connection is open.
+setTimeout(function () {
 if (connection.readyState === 1){
     if (username != null){
         name = username;
@@ -34,7 +41,10 @@ if (connection.readyState === 1){
 
         }
     }
+} else{
+    console.log("Connection has not established")
 }
+}, 3000)
 
 function send(message){
     if(connectedUser){

@@ -35,6 +35,14 @@ if (connection.readyState === 1){
     }
 }
 
+function send(message){
+    if(connectedUser){
+        message.name == connectedUser;
+    }
+
+    connection.send(JSON.stringify(message))
+}
+
 var local_video = document.querySelector("#local-video");
 // * To  access the user's camera and microphone.
 navigator.getUserMedia({

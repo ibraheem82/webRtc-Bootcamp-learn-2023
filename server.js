@@ -5,6 +5,7 @@ var wss = new webSockectServ({
     port:9090
 });
 
+var users = {};
 wss.on('connection', function(conn){
     console.log("User connected");
 

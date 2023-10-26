@@ -12,15 +12,28 @@ connection.onmessage = function(msg){
 
 // if there is error in connection or if the connection is not established.
 connection.onerror = function(error){
-    var data = JSON.parse(msg.data)
     console.log(error)
 }
 
 
+var name;
+
 var url_string = window.location.href;
 var url = new URL(url_string);
 var username = url.searchParams.get('username');
+// if the connection is open.
+if (connection.readyState === 1){
+    if (username != null){
+        name = username;
+        if (name.length > 0){
+            send({
+                type:"login",
+                name:name
+            })
 
+        }
+    }
+}
 
 var local_video = document.querySelector("#local-video");
 // * To  access the user's camera and microphone.

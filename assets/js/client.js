@@ -16,6 +16,7 @@ connection.onerror = function(error){
 }
 
 
+var local_video = document.querySelector("#local-video");
 var name;
 var connectedUser;
 var url_string = window.location.href;
@@ -57,3 +58,6 @@ navigator.getUserMedia({
     }, function(error){
         console.log(error);
     });
+    }
+
+}

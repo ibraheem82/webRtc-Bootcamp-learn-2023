@@ -14,6 +14,32 @@ wss.on('connection', function(conn){
     // Fire the message event on connection
     // the message passed in the parameter is the users message.
     conn.on('message', function(message){
+        var data;
+
+        try{
+            data = JSON.parse(message)
+        } catch(e) {
+            console.log("Invalid JSON");
+            data = {};
+        }
+
+        switch (data.type){
+            case "login":
+                if(users[data.name]){
+                    sendToOtherUser(conn,{
+                        type: "login",
+                        success: false
+                    })
+                } else{ 
+                    users[data.name] = conn;
+                    conn.name = data.name
+                    sendToOtherUser(conn, {
+                        type: "login",
+                        success: true
+                    })
+                }
+                break;
+        }
 
     })
 

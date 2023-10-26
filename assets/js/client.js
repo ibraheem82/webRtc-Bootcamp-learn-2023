@@ -44,8 +44,11 @@ function send(message){
     connection.send(JSON.stringify(message))
 }
 
-var local_video = document.querySelector("#local-video");
-// * To  access the user's camera and microphone.
+function loginProcess(success){
+    if(success === false){
+        alert("username is not correct");
+    } else{
+        // * To  access the user's camera and microphone.
 navigator.getUserMedia({
     video:true, 
     audio:true},

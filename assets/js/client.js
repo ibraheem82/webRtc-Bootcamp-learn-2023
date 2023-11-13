@@ -75,6 +75,18 @@ navigator.getUserMedia({
         stream = myStream;
         // * element is set to display the local video feed.
         local_video.srcObject = stream;
+        var configuration = {
+            "iceServer": [{
+                "url":"stun:stun2.1.google.com:1930"
+            }]
+        }
+        myConn = new webkitRTCPeerConnection(configuration, {
+            optional: [{
+            RtpDataChannels: true;
+        }]
+    });
+    
+    myConn.addTrack(stream);
         // ! For error
     }, function(error){
         console.log(error);

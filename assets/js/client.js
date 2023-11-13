@@ -29,6 +29,21 @@ var call_to_username_input = document.querySelector("#username-input");
 
 call_btn.addEventListener("click", function(){
     var call_to_username = call_to_username_input.value;
+
+    // check if the username is valid
+    if(call_to_username > 0){
+        connected_user = call_to_username;
+        myConn.createOffer(function(offer){
+            send({
+                type:"offer",
+                offer:offer
+            })
+            myConn.setLocalDescription(offer)
+            
+        }, function(error){
+                alert("Offer has not created.")
+        })
+    }
 })
 
 var name;

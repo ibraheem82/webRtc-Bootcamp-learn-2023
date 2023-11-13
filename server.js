@@ -6,6 +6,7 @@ var wss = new webSockectServ({
 });
 
 var users = {};
+var otherUser;
 wss.on('connection', function(conn){
     console.log("User connected");
 

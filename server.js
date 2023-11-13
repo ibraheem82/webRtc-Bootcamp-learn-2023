@@ -1,4 +1,4 @@
-// adding the web socket libary
+// -> adding the web socket libary
 var webSockectServ = require('ws').Server
 
 var wss = new webSockectServ({
@@ -14,7 +14,7 @@ wss.on('connection', function(conn){
 
    
 
-    // Fire the message event on connection
+    // -> Fire the message event on connection
     // the message passed in the parameter is the users message.
     // *  The message event is emitted whenever the server receives a message from a connected client. The event handler receives the message as an argument. The message is a string of text, but it is typically encoded in JSON format.
     conn.on('message', function(message){

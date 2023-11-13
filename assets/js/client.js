@@ -55,8 +55,8 @@ if (connection.readyState === 1){
 }, 3000)
 
 function send(message){
-    if(connectedUser){
-        message.name == connectedUser;
+    if(connected_user){
+        message.name == connected_user;
     }
 
     connection.send(JSON.stringify(message))

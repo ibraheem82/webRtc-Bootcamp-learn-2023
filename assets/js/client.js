@@ -23,6 +23,14 @@ connection.onerror = function(error){
 
 
 var local_video = document.querySelector("#local-video");
+var call_btn = document.querySelector("#call-btn");
+var call_to_username_input = document.querySelector("#username-input");
+
+
+call_btn.addEventListener("click", function(){
+    var call_to_username = call_to_username_input.value;
+})
+
 var name;
 var connectedUser;
 var url_string = window.location.href;

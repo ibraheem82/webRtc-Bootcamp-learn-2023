@@ -13,6 +13,11 @@ connection.onmessage = function(msg){
             // connected to the sendToOtherUser function.
             loginProcess(data.success);
         break;
+
+        case "offer":
+            // connected to the sendToOtherUser function.
+            offerProcess(data.offer, data.name);
+        break;
     }
 }
 

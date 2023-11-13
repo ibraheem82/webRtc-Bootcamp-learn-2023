@@ -82,3 +82,8 @@ navigator.getUserMedia({
     }
 
 }
+
+function offerProcess(offer, name){
+    connected_user = name;
+    myConn.setRemoteDescription(new RTCSessionDescription(offer))
+}

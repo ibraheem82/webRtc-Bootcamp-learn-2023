@@ -125,14 +125,11 @@ navigator.getUserMedia({
 // * A peer connection object is created using the webkitRTCPeerConnection() constructor within the loginProcess() function. It specifies an ICE server configuration to facilitate peer-to-peer communication.
         myConn = new webkitRTCPeerConnection(configuration, {
             optional: [{
-            RtpDataChannels: true;
+            RtpDataChannels: true
         }]
     });
     
-    // @ Adding Media Tracks to Peer Connection
-// * The myConn.addTrack() method is called within the loginProcess() function to add the local MediaStream's tracks to the peer connection. This allows the local video and audio to be sent to the remote peer.
-    myConn.addTrack(stream);
-        // ! For error
+
     }, function(error){
         console.log(error);
     });

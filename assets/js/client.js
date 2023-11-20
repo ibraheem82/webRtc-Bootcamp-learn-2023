@@ -1,3 +1,4 @@
+
 var connection = new WebSocket('ws://localhost:9090');
 
 
@@ -39,7 +40,7 @@ connection.onerror = function(error){
 // ! The code defines event handlers for user interactions:
 
 var connected_user;
-var local_video = document.querySelector("#local-video");
+// var local_video = document.querySelector("#local-video");
 var call_btn = document.querySelector("#call-btn");
 var call_to_username_input = document.querySelector("#username-input");
 
@@ -129,7 +130,7 @@ navigator.getUserMedia({
         }]
     });
     
-
+    myConn.addStream(stream);
     }, function(error){
         console.log(error);
     });
@@ -142,9 +143,11 @@ navigator.getUserMedia({
 // * The offerProcess() function handles the incoming offer from another user. It updates the connected_user variable to the caller's username and sets the remote description of the peer connection using the myConn.setRemoteDescription() method.
 function offerProcess(offer, name){
     connected_user = name;
+
+
 //  @   Setting Remote Description
 // * The myConn.setRemoteDescription() method is called within the offerProcess() function to set the remote description received from the caller. This provides the necessary information for the peer connection to establish the communication channel.
-
-
     myConn.setRemoteDescription(new RTCSessionDescription(offer))
+
+    alert(name)
 }

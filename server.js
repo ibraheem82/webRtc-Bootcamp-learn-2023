@@ -35,7 +35,7 @@ wss.on('connection', function(conn){
                         success: false
                     })
                 } else{ 
-                    users[data.name] = conn;
+                    users[data.nme] = conn;
                     conn.name = data.name
                     sendToOtherUser(conn, {
                         type: "login",
